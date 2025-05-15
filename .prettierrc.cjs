@@ -1,0 +1,36 @@
+// @ts-check
+
+/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
+module.exports = {
+  tabWidth: 2,
+  printWidth: 80,
+  singleQuote: true,
+  semi: true,
+  arrowParens: 'always',
+  trailingComma: 'all',
+  endOfLine: 'lf',
+  importOrder: [
+    '^(react/(.*)$)|^(react$)',
+    '^(next/(.*)$)|^(next$)',
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '^types$',
+    '^~/env(.*)$',
+    '^~/types/(.*)$',
+    '^~/config/(.*)$',
+    '^~/schemas/(.*)$',
+    '^~/lib/(.*)$',
+    '^~/store/(.*)$',
+    '^~/atoms/(.*)$',
+    '^~/context/(.*)$',
+    '^~/hooks/(.*)$',
+    '^~/components/ui/(.*)$',
+    '^~/components/(.*)$',
+    '^~/styles/(.*)$',
+    '^~/app/(.*)$',
+    '^~/server/(.*)$',
+    '',
+    '^[.]',
+  ],
+  plugins: ['@ianvs/prettier-plugin-sort-imports'],
+};
