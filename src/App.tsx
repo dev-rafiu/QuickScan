@@ -1,4 +1,4 @@
-import { Scanner } from './components/scanner';
+import { Scanner } from './components/Scanner';
 
 function App() {
   return (
