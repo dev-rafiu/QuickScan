@@ -18,7 +18,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import { cn } from '@/lib/utils';
 import { Html5Qrcode } from 'html5-qrcode';
 import { Camera, Scan, Upload } from 'lucide-react';
 import { toast } from 'sonner';
@@ -92,7 +91,7 @@ export function Scanner() {
 
         {
           fps: 10,
-          qrbox: { width: 280, height: 280 },
+          qrbox: { width: 180, height: 280 },
           aspectRatio: 1.0,
         },
 
@@ -171,11 +170,6 @@ export function Scanner() {
   };
 
   const handleSuccessfulScan = (barcode: string, source: string) => {
-    // if (scannedItems.some((item) => item.barcode === barcode)) {
-    //   toast.error(`Barcode ${barcode} already scanned`);
-    //   return;
-    // }
-
     const newItem: ScannedItem = {
       barcode,
       fileName: source,
@@ -226,13 +220,16 @@ export function Scanner() {
   return (
     <section className="space-y-4 max-w-lg mx-auto">
       <div className="relative flex h-44 items-center justify-center bg-muted rounded-md border border-dashed border-gray-300">
-        {/* Scanner container */}
-        <div
-          id="scanner-container"
-          ref={scannerContainerRef}
-          className={cn('absolute inset-0')}
-          style={{ display: 'none' }}
-        />
+        {/* scanner container */}
+
+        <div className="h-44 w-full overflow-hidden absolute">
+          <div
+            id="scanner-container"
+            ref={scannerContainerRef}
+            className="inset-0 h-full"
+            style={{ display: 'none' }}
+          />
+        </div>
 
         {/* hidden file inputs */}
         <div className="">

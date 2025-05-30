@@ -9,13 +9,13 @@ export default function CopyButton({ textToCopy }: { textToCopy: string }) {
     try {
       await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
-      toast.success('Copied');
+      toast.success('Code copied');
 
       setTimeout(() => {
         setCopied(false);
       }, 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error('Failed to copy code: ', err);
     }
   };
 
